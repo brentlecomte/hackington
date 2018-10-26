@@ -16,6 +16,9 @@ void ofApp::keyPressed(int key){
     if (key == OF_KEY_RIGHT) {
         fruits.push_back(new Fruit(2));
     }
+    if (key == OF_KEY_DOWN) {
+        fruits.push_back(new Fruit(3));
+    }
 }
 
 //--------------------------------------------------------------

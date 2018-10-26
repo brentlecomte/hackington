@@ -10,7 +10,6 @@
 ofColor color = (0, 255, 0);
 
 Fruit::Fruit(int kind) {
-    bool visible = true;
     int locationX = ofRandom(20, ofGetWindowWidth()-20);
     switch (kind) {
         case 0:
@@ -23,11 +22,13 @@ Fruit::Fruit(int kind) {
             color = ofColor(255,140,0);
             break;
         case 3:
+            color = ofColor(0,0,0);
             break;
         default:
             locationX = ofGetWindowWidth()/2;
             break;
     }
+    visible = true;
     location = ofVec2f(
                        locationX,
                        0
