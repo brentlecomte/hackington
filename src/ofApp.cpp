@@ -1,72 +1,40 @@
 #include "ofApp.h"
+#include "Fruit.hpp"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-//yeet
+    ofSetFrameRate(60);
+}
 
+void ofApp::keyPressed(int key){
+    if (key == OF_KEY_LEFT){
+        fruits.push_back(new Fruit(0));
+    }
+    if (key == OF_KEY_UP) {
+        fruits.push_back(new Fruit(1));
+    }
+    if (key == OF_KEY_RIGHT) {
+        fruits.push_back(new Fruit(2));
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    
+    for (int i = 0; i < fruits.size(); i++) {
+        fruits[i]->update();
+        if (ofDist(mouseX,mouseY, fruits[i]->location.x,fruits[i]->location.y) <= fruits[i]->radius) {
+            fruits[i]->hide();
+        }
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    ofPushStyle();
+    for (int i = 0; i < fruits.size(); i++) {
+        fruits[i]->draw();
+    }
+    ofPopStyle();
 }
 
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
