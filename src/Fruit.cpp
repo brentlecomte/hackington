@@ -43,6 +43,9 @@ Fruit::Fruit(int kind) {
 
 void Fruit::update() {
     location += speed;
+    if (location.y >= ofGetWindowHeight()) {
+        visible = false;
+    }
 }
 
 void Fruit::draw() {

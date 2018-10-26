@@ -19,12 +19,13 @@ public:
     void hide();
     ofColor color;
     int radius;
+    bool visible;
     ofVec2f location;
     
 private:
     ofVec2f speed;
     int kind;
-    bool visible;
+    
 };
 
 #endif /* Fruit */

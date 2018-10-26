@@ -22,5 +22,10 @@ public:
     int oldX;
     int oldY;
     
+    int lives;
+    int score;
+    
+    ofSoundPlayer mySound;
+    
     vector<Fruit *> fruits;
 };
